@@ -6,17 +6,26 @@
  */
 
 let Templater = {
-	run: (tag, customTag) => {
+	run: () => {
 
-		let elements = Array.from(document.getElementsByTagName(tag));
+		let elements = Array.from(document.getElementsByTagName("bootstrap_button"));
 
-		for (let i = 0; i <= elements.length; i++) {
+		for (let i = 0; i < elements.length; i++) {
 
-			elements[i].outerHTML= customTag;
+			elements[i].outerHTML= "<button class=\"btn btn-default\" type=\"submit\">Some Text</button>";
 
 		}
 		
+	},
+	
+	addTag: (tag, template) => {
+		let elements = Array.from(document.getElementsByTagName(tag));
+
+		for (let i = 0; i < elements.length; i++) {
+
+			elements[i].outerHTML= template;
+
+		}
 	}
 }
 
-Templater.run("bootstrap_button", "<button class=\"btn btn-default\" type=\"submit\">Some Text</button>");
